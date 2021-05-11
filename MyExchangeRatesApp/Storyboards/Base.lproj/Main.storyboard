@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t1L-xn-BVJ">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Курс ЦБ РФ на дату-->
+        <scene sceneID="cfu-bp-Z0H">
+            <objects>
+                <tableViewController id="HX1-JX-bN3" customClass="MainTableViewController" customModule="MyExchangeRatesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JqC-nd-ImX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rateCell" id="mwO-DG-hPz" customClass="RateTableViewCell" customModule="MyExchangeRatesApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mwO-DG-hPz" id="smr-Kk-nJx">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILE-D5-LS5">
+                                            <rect key="frame" x="16" y="11.5" width="55" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="Qys-pg-LkK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PtY-uQ-ZJm">
+                                            <rect key="frame" x="222" y="11.5" width="50" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="USd-vq-CGU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hIV-P1-Q9a">
+                                            <rect key="frame" x="288" y="14" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="hIV-P1-Q9a" secondAttribute="height" multiplier="1:1" id="7E4-ch-OjX"/>
+                                                <constraint firstAttribute="height" constant="16" id="Uu6-dh-CBf"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyE-du-lKj">
+                                            <rect key="frame" x="101" y="11.5" width="35" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ILE-D5-LS5" firstAttribute="leading" secondItem="smr-Kk-nJx" secondAttribute="leading" constant="16" id="1aC-86-SlJ"/>
+                                        <constraint firstItem="hIV-P1-Q9a" firstAttribute="centerY" secondItem="smr-Kk-nJx" secondAttribute="centerY" id="6PR-hv-5ev"/>
+                                        <constraint firstItem="PtY-uQ-ZJm" firstAttribute="centerY" secondItem="smr-Kk-nJx" secondAttribute="centerY" id="9Kc-pE-IHU"/>
+                                        <constraint firstItem="hIV-P1-Q9a" firstAttribute="leading" secondItem="PtY-uQ-ZJm" secondAttribute="trailing" constant="16" id="XUg-ZT-HwS"/>
+                                        <constraint firstItem="NyE-du-lKj" firstAttribute="centerY" secondItem="smr-Kk-nJx" secondAttribute="centerY" id="fAf-St-oOi"/>
+                                        <constraint firstItem="NyE-du-lKj" firstAttribute="leading" secondItem="ILE-D5-LS5" secondAttribute="trailing" constant="30" id="fBr-sJ-NXn"/>
+                                        <constraint firstItem="PtY-uQ-ZJm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NyE-du-lKj" secondAttribute="trailing" constant="86" id="j7E-nc-GS5"/>
+                                        <constraint firstItem="ILE-D5-LS5" firstAttribute="centerY" secondItem="smr-Kk-nJx" secondAttribute="centerY" id="lZl-f6-L3f"/>
+                                        <constraint firstAttribute="trailing" secondItem="hIV-P1-Q9a" secondAttribute="trailing" constant="16" id="nxi-Kg-HFm"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="deltaImageView" destination="hIV-P1-Q9a" id="6yj-qu-maT"/>
+                                    <outlet property="deltaRateLabel" destination="PtY-uQ-ZJm" id="ngu-nO-Jq1"/>
+                                    <outlet property="nameCurrencyLabel" destination="ILE-D5-LS5" id="hv6-hQ-Cf7"/>
+                                    <outlet property="rateLabel" destination="NyE-du-lKj" id="yW0-gE-vso"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HX1-JX-bN3" id="sSv-Jp-Klr"/>
+                            <outlet property="delegate" destination="HX1-JX-bN3" id="N6A-CG-rKj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Курс ЦБ РФ на дату" id="vhm-CN-e1f">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="7js-wV-j5l">
+                            <connections>
+                                <action selector="refreshData:" destination="HX1-JX-bN3" id="FAs-uE-0bF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bE6-yi-th1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="847.5" y="124.64788732394366"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="02d-3D-Mex">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t1L-xn-BVJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V7F-Vn-FpR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HX1-JX-bN3" kind="relationship" relationship="rootViewController" id="ON1-1Y-ESB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VUL-2k-dTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="91.875" y="124.64788732394366"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
