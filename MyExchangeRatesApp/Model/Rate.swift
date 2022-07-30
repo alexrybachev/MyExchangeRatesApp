@@ -11,6 +11,8 @@ struct ExchangeRate: Decodable {
     let PreviousURL: String
     let Timestamp: String
     let Valute: [String: Valute]
+    
+    
 }
 
 struct Valute: Decodable {

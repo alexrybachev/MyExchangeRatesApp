@@ -18,8 +18,6 @@ class MainTableViewController: UITableViewController {
         
         spinnerView = showSpinner(in: tableView)
         sendRequest()
-        
-        title = "Курс ЦБ РФ"
     }
     
     // MARK: - IBActions
@@ -42,35 +40,56 @@ class MainTableViewController: UITableViewController {
     
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return rates.count
-//    }
-
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        rates.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        rates[section].Name
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rates.count
+        1
+//        return rates.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "rateCell", for: indexPath) as! RateTableViewCell
+        let valute = rates[indexPath.section]
+        
+        var content = cell.defaultContentConfiguration()
         
         cell.nameCurrencyLabel.text = rates[indexPath.row].CharCode
         cell.rateLabel.text = string(rates[indexPath.row].Value)
         
-        if rates[indexPath.row].Previous! == rates[indexPath.row].Value! {
-            cell.deltaRateLabel.text = "0.0"
-        } else if rates[indexPath.row].Previous! < rates[indexPath.row].Value! {
-            cell.deltaRateLabel.text = "+" + string((rates[indexPath.row].Value! - rates[indexPath.row].Previous!))
+        let delta = rates[indexPath.row].Value! - rates[indexPath.row].Previous!
+        
+        if delta > 0 {
+            cell.deltaRateLabel.text = "+" + string(delta)
             cell.deltaRateLabel.textColor = .green
             cell.deltaImageView.image = UIImage(named: "sort-up")
-        } else {
-            cell.deltaRateLabel.text = string((rates[indexPath.row].Value! - rates[indexPath.row].Previous!))
+        } else if delta < 0 {
+            cell.deltaRateLabel.text = string(delta)
             cell.deltaRateLabel.textColor = .red
             cell.deltaImageView.image = UIImage(named: "sort-down")
+        } else {
+            cell.deltaRateLabel.text = "0.0"
         }
         return cell
     }
 
+}
 
+
+// MARK: - UITableViewDelegate
+extension MainTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//    }
 }
 
 // MARK: - Animation
