@@ -11,6 +11,8 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
+    private init() {}
+    
     func fetchData(_ completion: @escaping (ExchangeRate, [Valute]) -> Void) {
         let jsonURL = "https://www.cbr-xml-daily.ru/daily_json.js"
         guard let url = URL(string: jsonURL) else { return }
